@@ -9,22 +9,19 @@ import { navlist } from '../consts/consts'
 import NavbarItem from './NavbarItem'
 
 export default {
+  props: {
+    choice: {
+      type: Number,
+      required: true
+    }
+  },
   data () {
     return {
-      choice: 0,
       navlist
     }
   },
   components: {
     NavbarItem
-  },
-  events: {
-    choiceChange (index) {
-      if (index === this.choice) {
-        return
-      }
-      this.choice = index
-    }
   }
 }
 </script>

@@ -1,21 +1,11 @@
 <template>
   <div id="app">
-    <wrapper></wrapper>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Wrapper from './components/Wrapper'
-
 export default {
-  data () {
-    return {
-      msg: 'awdwadawd'
-    }
-  },
-  components: {
-    Wrapper
-  }
 }
 </script>
 
@@ -53,7 +43,7 @@ body {
   background-image: url('assets/bg.png');
 }
 
-#id {
+#app {
   width: 100%;
   height: 100%;
 }

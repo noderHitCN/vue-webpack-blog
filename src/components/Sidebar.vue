@@ -14,6 +14,6 @@ export default {
   height: 100%;
   flex-grow: 1;
   margin-left: 13px;
-  background: orange;
+  background: #3B5998;
 }
 </style>
