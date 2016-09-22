@@ -21,7 +21,6 @@ export default {
 <style>
 #wrapper {
   height: 600px;
-  background: red;
   margin-top: -300px;
   width: 100%;
   top: 50%;

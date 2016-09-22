@@ -23,7 +23,6 @@ export default {
   width: 1130px;
   height: 100%;
   margin: auto;
-  background: blue;
   display: flex;
   flex-direction: row;
 }
