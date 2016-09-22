@@ -1,15 +1,20 @@
 <template>
-  <div id="navbar">
-  </div>
+  <ul id="navbar">
+    <navbar-item v-for="item in navlist" :item="item"></navbar-item>
+  </ul>
 </template>
 
 <script>
-export default {
-  // data () {
-  //   return {
+import { navlist } from '../consts/consts'
+import NavbarItem from './NavbarItem'
 
-  //   }
-  // }
+export default {
+  data () {
+    navlist
+  },
+  components: {
+    NavbarItem
+  }
 }
 </script>
 
@@ -18,5 +23,7 @@ export default {
   width: 76px;
   height: 100%;
   background: yellow;
+  display: flex;
+  flex-direction: row;
 }
 </style>
