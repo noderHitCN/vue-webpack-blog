@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <navbar :choice="choice"></navbar>
-    <router-view :choice="choice"></router-view>
+    <Content :choice="choice"></Content>
     <sidebar></sidebar>
   </div>
 </template>
@@ -9,13 +9,14 @@
 <script>
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
+import Content from './Content'
 
 export default {
   created () {
-    this.$router.go({name: 'content'})
+    // this.$router.go({name: 'content'})
   },
   components: {
-    Navbar, Sidebar
+    Navbar, Sidebar, Content
   },
   data () {
     return {

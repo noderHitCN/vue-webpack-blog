@@ -1,7 +1,7 @@
 <template>
   <div id="content">
-    <div id="progress"></div>
-    <router-view></router-view>
+    <div id="progress" :style="{ 'width': percent + '%'}" v-if="showState"></div>
+    <router-view transition="in-out" transition-mode="out-in"></router-view>
   </div>
 </template>
 
@@ -17,18 +17,47 @@ export default {
     choice: function (value) {
       switch (value) {
         case 0:
-          this.$router.go({name: 'profile'})
+          this.$route.router.go({name: 'profile'})
           break
         case 4:
-          this.$router.go({name: 'essay'})
+          this.$route.router.go({name: 'essay'})
           break
         default:
-          this.$router.go({name: 'profile'})
+          this.$route.router.go({name: 'profile'})
       }
+    }
+  },
+  data () {
+    return {
+      showState: false,
+      percent: 0,
+      total: 0,
+      loaded: 0
     }
   },
   components: {
 
+  },
+  events: {
+    changeProgress (percent) {
+      this.percent = percent * 90 + 10
+    },
+    hideProgress () {
+      this.showState = false
+    },
+    showProgress () {
+      this.showState = true
+    },
+    totalComponent (total) {
+      this.total = total
+    },
+    addComponent () {
+      this.loaded++
+      this.percent = (this.loaded / this.total) * 90 + 10
+      if (this.percent === 100) {
+        this.loaded = 0
+      }
+    }
   }
 }
 </script>
@@ -41,5 +70,29 @@ export default {
   margin-left: 13px;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
+}
+
+#progress {
+  height: 5px;
+  width: 10%;
+  background: orange;
+  position: absolute;
+}
+
+.in-out-transition {
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.in-out-enter, .in-out-leave {
+  opacity: 0;
+}
+
+.in-out-enter {
+  transform: translateY(-600px);
+}
+
+.in-out-leave {
+  transform: translateY(500px);
 }
 </style>

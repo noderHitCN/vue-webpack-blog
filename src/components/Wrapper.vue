@@ -1,17 +1,17 @@
 <template>
   <div id="wrapper">
-    <router-view></router-view>
+    <Container></Container>
   </div>
 </template>
 
 <script>
-// import Container from './Container'
+import Container from './Container'
 export default {
   created () {
-    this.$router.go({name: 'index'})
+    // this.$router.go({name: 'index'})
   },
   components: {
-    // Container
+    Container
   }
 }
 </script>
