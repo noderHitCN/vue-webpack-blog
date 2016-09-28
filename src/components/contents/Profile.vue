@@ -11,29 +11,56 @@
       <div>
     </section>
     <section class="about-me p-section-relative">
-      <div class="ab-title">
+      <div class="p-title ab-title">
       	ABOUT ME
       </div>
       <div class="ab-user">
         <em class="p-icon p-icon-user p-center"></em>
-        <hr>
+        <hr class="p-hr">
       </div>
       <div class="ab-content">
-        <p class="p-quote">You don't kown me？好吧，我先做一个自我介绍，我叫杨雯杰，现在就读于电子科技大学。从小对于艺术的热爱让我走上了Web前端工程师的道路，希望能在这条路上走的更远。这是我的个人网站，希望你能够喜欢～</p>
+        <p class="p-quote">You don't kown me？好吧，我先做一个自我介绍，我叫杨雯杰，现在就读于电子科技大学。对于互联网的热爱让我走上了Web前端工程师的道路，希望能在这条路上走的更远。这是我的个人网站，希望你能够喜欢～</p>
       </div>
     </section>
     <section class="my-skills">
+      <div class="p-title ms-title">
+       	MY SKILLS
+      </div>
+      <div class="ms-icon">
+        <em class="p-icon p-icon-skills p-center"></em>
+        <hr class="p-hr">
+      </div>
+      <div class="ms-graph">
+      	<ul class="ms-graph-list">
+      	  <li class="ms-graph-list-item"><draw-circle width="156" height="156"></draw-circle>
+      	  <em>Javascript</em>
+      	  </li>
+      	  <li class="ms-graph-list-item"><draw-circle width="156" height="156"></draw-circle>
+      	  <em>HTML/CSS</em>
+      	  </li>
+      	  <li class="ms-graph-list-item"><draw-circle width="156" height="156"></draw-circle>
+      	  <em>Node.js</em>
+      	  </li>
+      	</ul>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
+import DrawCircle from './DrawCircle'
+
 export default {
   route: {
     activate (transition) {
       this.$dispatch('choiceChange', 0)
       transition.next()
     }
+  },
+  methods: {
+  },
+  components: {
+    DrawCircle
   }
 }
 </script>
@@ -55,6 +82,13 @@ export default {
   text-align: center;
 }
 
+.p-title {
+  margin: auto;
+  font-size: 250%;
+  text-align: center;
+  padding: .3em .7em;
+}
+
 .p-icon {
   display: block;
   width: 4em;
@@ -71,6 +105,10 @@ export default {
   content: '\F007';
 }
 
+.p-icon-skills:after {
+  content: '\f085';
+}
+
 .p-quote:before {
   content: '\f10d';
   font-size: .1em;
@@ -85,6 +123,15 @@ export default {
   position: relative;
   top: -5px;
   /*left: -2px;*/
+}
+
+.p-hr {
+  width: 50%;
+  position: absolute;
+  margin-top: 1em;
+  margin-left: 50%;
+  left: -25%;
+  z-index: 1;
 }
 
 #profile .show-myself {
@@ -135,26 +182,13 @@ export default {
 
 #profile .about-me {
   width: 100%;
-  height: 10em;
   background: white;
+  padding-bottom: 5em;
+  padding-top: 5em;
 }
 
 #profile .about-me .ab-title {
-  margin: auto;
-  font-size: 250%;
-  text-align: center;
-  padding: .3em .7em;
-  color: #bbb;
-  margin-top: 1em;
-}
-
-#profile .about-me .ab-user hr {
-  width: 50%;
-  position: absolute;
-  margin-top: 1em;
-  margin-left: 50%;
-  left: -25%;
-  z-index: 1;
+  color: #aaa;
 }
 
 #profile .about-me .ab-content {
@@ -171,6 +205,34 @@ export default {
 
 #profile .my-skills {
   width: 100%;
-  height: 15em;
+  background: #EEEEE0;
+  padding-bottom: 5em;
+  padding-top: 5em;
+ }
+
+#profile .my-skills .ms-title {
+   color: #aaa;
+ }
+
+#profile .my-skills .ms-icon em {
+   background: #EEEEE0;
+ }
+
+#profile .my-skills .ms-graph {
+   width: 80%;
+   margin: auto;
+   margin-top: 4em;
+ }
+
+#profile .my-skills .ms-graph .ms-graph-list {
+   width: 100%;
+   display: flex;
+ }
+
+#profile .my-skills .ms-graph .ms-graph-list-item {
+  width: 156px;
+  /*background: red;*/
+  margin: 0px 19px;
 }
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div id="content" @scroll="onHandleScoll">
     <div id="progress" :style="{ 'width': percent + '%'}" v-if="showState"></div>
     <router-view transition="in-out" transition-mode="out-in"></router-view>
   </div>
@@ -57,6 +57,10 @@ export default {
       if (this.percent === 100) {
         this.loaded = 0
       }
+    }
+  },
+  methods: {
+    onHandleScoll (e) {
     }
   }
 }
